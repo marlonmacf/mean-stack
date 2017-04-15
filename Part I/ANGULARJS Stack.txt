@@ -1,7 +1,8 @@
 
 ANGULARJS
 
-AngularJS is a MVW (Model-View-Whatever) JavaScript framework, that enhances HTML for web apps, by extending standard HTML tags and properties with DIRECTIVES to binds events and data (DATA BINDING) into it using EXPRESSIONS.
+AngularJS is a MVW (Model-View-Whatever) JavaScript framework, that enhances HTML for web apps, by extending
+standard HTML tags and properties with DIRECTIVES to binds events and data (DATA BINDING) into it using EXPRESSIONS.
 
 DIRECTIVES are extensions of HTML markups (attributes, element names, CSS class or HTML comments).
 
@@ -13,20 +14,25 @@ SCOPE ($scope) it is an object that contains all the data to which HTML is bound
 They are the link between your javascript code (controllers) and the view (HTML).
 Also everything that is attached to the $scope, it is watched ($watch) by AngularJS and updated.
 
-CONTROLLERS are javascript code that "controls" some sections containing DOM elements. Encapsulate the behavior and callbacks. Also link $scope models with views.
+CONTROLLERS are javascript code that "controls" some sections containing DOM elements.
+Encapsulate the behavior and callbacks. Also link $scope models with views.
 
-MODULES are a way to encapsulate different parts of your application. They allow reusing code in other places, just like dependencies.
+MODULES are a way to encapsulate different parts of your application.
+They allow reusing code in other places, just like dependencies.
 
-TEMPLATES contain HTML and Angular elements (directives, markup, filters or form controls). They can be cached and referenced by an id.
+TEMPLATES contain HTML and Angular elements (directives, markup, filters or form controls).
+They can be cached and referenced by an id.
 
-ROUTES (ngRoute) allows changing what we see in the app depending on the URL (route). Every time the URL changes, $routeProvider will inject a new template and controller into ng-view.
+ROUTES (ngRoute) allows changing what we see in the app depending on the URL (route).
+Every time the URL changes, $routeProvider will inject a new template and controller into ng-view.
 
 SERVICES (Factories) are a way to inject data dependencies into controllers.
 They are created through factories.
 
-FILTERS allow you to format and transform data. They change the output of expressions inside the curly braces. You can chain many filters and also define your own filters.
+FILTERS allow you to format and transform data. They change the output of expressions inside the curly braces.
+You can chain many filters and also define your own filters.
 
-==================================================================================
+=======================================================================================================================
 
 NG-DIRECTIVES
 
@@ -41,7 +47,7 @@ NG-DIRECTIVES
 
 - ng-repeat: It is going to iterate for each element and sub-element where this directive is declared.
 
-==================================================================================
+=======================================================================================================================
 
 FILTERS
 
@@ -54,7 +60,7 @@ FILTERS
 - limitTo: number of elements from an array to show.
 - orderBy: order array of objects by a key that you specify.
 
-==================================================================================
+=======================================================================================================================
 
 OVERVIEW
 
@@ -63,11 +69,16 @@ AngularJS tries to provide a easy code complexity and readability:
 - AngularJS features save you from much boilerplate code.
 - Provides solutions for writing modular code and dependencies management.
 
-(model) <- $scope - (controller) - $scope -> (view)
-
+MVW (Model-View-Whatever)
 - view: visual elements (HTML).
 - controller: javascript code (behavior and callbacks).
 - model: data (POJO).
 
-AngularJS loads -> ng-app it's compiled -> Directives are bound to data, events and DOM transformations -> All data models and directives are referenced in the scope -> Everything that is attached to the $scope, it is watched by AngularJS and updated.
+(model) <- $scope - (controller) - $scope -> (view)
+
+1. AngularJS loads.
+2. ng-app it's compiled.
+3. Directives are bound to data, events and DOM transformations.
+4. All data models and directives are referenced in the scope.
+5. Everything that is attached to the $scope, it is watched by AngularJS and updated.
 
