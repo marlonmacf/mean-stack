@@ -1,0 +1,73 @@
+
+ANGULARJS
+
+AngularJS is a MVW (Model-View-Whatever) JavaScript framework, that enhances HTML for web apps, by extending standard HTML tags and properties with DIRECTIVES to binds events and data (DATA BINDING) into it using EXPRESSIONS.
+
+DIRECTIVES are extensions of HTML markups (attributes, element names, CSS class or HTML comments).
+
+DATA BINDING is an feature that syncronizes your model data with your HTML.
+Whenever the HTML is changed, the modal gets updated.
+Wherever the model gets updated it is reflected in HTML.
+
+SCOPE ($scope) it is an object that contains all the data to which HTML is bound.
+They are the link between your javascript code (controllers) and the view (HTML).
+Also everything that is attached to the $scope, it is watched ($watch) by AngularJS and updated.
+
+CONTROLLERS are javascript code that "controls" some sections containing DOM elements. Encapsulate the behavior and callbacks. Also link $scope models with views.
+
+MODULES are a way to encapsulate different parts of your application. They allow reusing code in other places, just like dependencies.
+
+TEMPLATES contain HTML and Angular elements (directives, markup, filters or form controls). They can be cached and referenced by an id.
+
+ROUTES (ngRoute) allows changing what we see in the app depending on the URL (route). Every time the URL changes, $routeProvider will inject a new template and controller into ng-view.
+
+SERVICES (Factories) are a way to inject data dependencies into controllers.
+They are created through factories.
+
+FILTERS allow you to format and transform data. They change the output of expressions inside the curly braces. You can chain many filters and also define your own filters.
+
+==================================================================================
+
+NG-DIRECTIVES
+
+- ng-app: is a directive that bootstrap AngulasJS. It designates the caller element as the root.
+- ng-model: is a directive that binds and keep data (model) and visual elements (HTML) in sync.
+- ng-controller: is a directive that tells angular what function controller to use for a particular view.
+- ng-view: is a directive used by $routeProvider to render templates on it.
+- ng-template: <script type="text/ng-template" id="/template.html"></script>
+
+- ng-bind: is a directive that binds application data to the HTML view.
+- expressions or {{ }}: are a way of binding models to elements in HTML.
+
+- ng-repeat: It is going to iterate for each element and sub-element where this directive is declared.
+
+==================================================================================
+
+FILTERS
+
+- filter: search for a given string in an array and return matches.
+- number: adds comma-separated 1000's and teo decimal places.
+- currency: the same as number and adds a $ in front.
+- date: takes a unix timestamp or date string and output it in a new format.
+- JSON: converts javascript objects to JSON strings.
+- lowercase/uppercase: convert string to lowercase/uppercase.
+- limitTo: number of elements from an array to show.
+- orderBy: order array of objects by a key that you specify.
+
+==================================================================================
+
+OVERVIEW
+
+AngularJS tries to provide a easy code complexity and readability:
+- It decouples DOM manipulation from the application logic.
+- AngularJS features save you from much boilerplate code.
+- Provides solutions for writing modular code and dependencies management.
+
+(model) <- $scope - (controller) - $scope -> (view)
+
+- view: visual elements (HTML).
+- controller: javascript code (behavior and callbacks).
+- model: data (POJO).
+
+AngularJS loads -> ng-app it's compiled -> Directives are bound to data, events and DOM transformations -> All data models and directives are referenced in the scope -> Everything that is attached to the $scope, it is watched by AngularJS and updated.
+
