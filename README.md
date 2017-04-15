@@ -1,4 +1,4 @@
-# mean-stack
+# MEAN Stack
 
 MEAN (MongoDB, ExpressJS, AngularJS and NodeJS)
 
@@ -15,3 +15,13 @@ http://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-node
 MEAN Stack Tutorial: MongoDB, ExpressJS, AngularJS and NodeJS (Part III)
 <br />
 http://adrianmejia.com/blog/2014/10/03/mean-stack-tutorial-mongodb-expressjs-angularjs-nodejs/
+
+##### Deploying with Heroku:
+
+Create a Web App and RESTful API Server Using the MEAN Stack
+<br />
+https://devcenter.heroku.com/articles/mean-apps-restful-api
+
+mLab MongoDB
+<br />
+https://elements.heroku.com/addons/mongolab
