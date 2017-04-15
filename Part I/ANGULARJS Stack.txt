@@ -82,3 +82,4 @@ MVW (Model-View-Whatever)
 4. All data models and directives are referenced in the scope.
 5. Everything that is attached to the $scope, it is watched by AngularJS and updated.
 
+=======================================================================================================================
