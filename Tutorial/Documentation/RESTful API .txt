@@ -1,0 +1,20 @@
+
+RESTful API
+
+REST stands for Representational State Transfer. It is an architecture that allows "client-server" communication
+through a uniform interface. REST is "stateless", "cachable" and has property called "idempotence".
+It means that the side effect of identical requests have the same side-effect as a single request.
+
+HTTP RESTful API's are compose of:
+- HTTP methods: GET, PUT, DELETE, PATCH, POST
+- Base URI: http://mean-stack.com
+- URL path: /user/1/delete/
+- Media type: html, JSON, XML, Microformats, Atom, Images...
+
+CRUD functionality:
+- CREATE (POST)
+- READ (GET)
+- UPDATE (PUT)
+- DELETE (DELETE)
+
+=======================================================================================================================
