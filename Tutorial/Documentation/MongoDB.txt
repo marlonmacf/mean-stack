@@ -1,0 +1,16 @@
+
+MongoDB
+
+MongoDB is a document-oriented NoSQL database (Big Data ready).
+it stores data in JSON-like format and allows users to perform SQL-like queries against it.
+
+To install MongoDB
+
+$ sudo apt-get -y install mongodb
+$ mongod --version
+
+# db version v2.6.10
+# 2017-04-15T22:11:32.871-0300 git version: nogitversion
+# 2017-04-15T22:11:32.871-0300 OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+
+=======================================================================================================================
