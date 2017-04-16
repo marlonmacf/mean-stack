@@ -1,0 +1,12 @@
+
+ExpressJS
+
+ExpressJS is a web application framework that runs on NodeJS.
+It allows you to build web applications and API endpoints (need more details on this).
+
+To install ExpressJS you can add the "express" as a dependency, inside your project folder.
+
+$ npm init
+$ npm install express --save
+
+=======================================================================================================================
