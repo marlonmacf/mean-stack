@@ -24,12 +24,12 @@ app.get, app.delete, app.post app.update... (app.verb)
 
 Bootstrapping ExpressJS
 
-Express has a separate package called "express-generator", which can help us to get started with out API.
+Express has a separate package called "express-generator", which can help us to get started with o express app.
 
 # install it globally using -g
 sudo npm install express-generator -g
 
-# create test-app API with EJS views (instead the default Jade)
+# create test-app API with EJS template views (instead the default Jade)
 express test-api -e
 
 # install dependencies
