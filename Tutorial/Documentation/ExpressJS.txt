@@ -1,12 +1,58 @@
 
 ExpressJS
 
-ExpressJS is a web application framework that runs on NodeJS.
-It allows you to build web applications and API endpoints (need more details on this).
+ExpressJS is a complete web framework solution that runs on NodeJS.
+It has HTML template solutions (jade, ejs, handlebars, hogan.js) and CSS precompilers (less, stylus, compass).
+Through middlewares layers, it handles: cookies, sessions caching, CSRF, compression and many more.
+
+=======================================================================================================================
 
 To install ExpressJS you can add the "express" as a dependency, inside your project folder.
 
 $ npm init
 $ npm install express --save
+
+=======================================================================================================================
+
+Middlewares are pluggable processors that runs on each request made to the server.
+You can have number of middlewares that will process the request one by one in a serial fashion.
+
+app.use (will apply for all request)
+app.get, app.delete, app.post app.update... (app.verb)
+
+=======================================================================================================================
+
+Bootstrapping ExpressJS
+
+Express has a separate package called "express-generator", which can help us to get started with out API.
+
+# install it globally using -g
+sudo npm install express-generator -g
+
+# create test-app API with EJS views (instead the default Jade)
+express test-api -e
+
+# install dependencies
+cd test-api && npm install
+
+# run the app on Linux/Mac
+PORT=4000 npm start
+
+# run the app on Windows
+SET PORT=4000 & npm start
+
+Use your browser to go to http://0.0.0.0:4000
+
+=======================================================================================================================
+
+Connect ExpressJS to MongoDB
+
+# The MongoDB must be running
+
+$ mongod
+
+# Install the MongoDB driver for NodeJS
+
+$ npm install mongoose --save
 
 =======================================================================================================================

@@ -4,6 +4,8 @@ NodeJS
 NodeJS allows you to run JavaScript outside the browser, in this case, on the web server.
 Node Package Manager (NPM) allows you to install/publish node packages with ease.
 
+=======================================================================================================================
+
 To install NodeJS
 
 $ sudo apt-get install curl
