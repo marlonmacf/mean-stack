@@ -31,13 +31,19 @@ $ mongod
 
 Errors that you may have
 
+Fix [ERROR: dbpath (/data/db) does not exist]
+
+$ cd ~
+$ sudo mkdir -p /data/db/
+$ sudo chown `id -u` /data/db
+
 Fix [ERROR: Insufficient free space for journal files]
 
 $ mongod --smallfiles
 
 Fix [ERROR: addr already in use]
 
-$ killall mongod
+$ sudo killall mongod
 
 =======================================================================================================================
 
