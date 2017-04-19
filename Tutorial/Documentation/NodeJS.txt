@@ -8,12 +8,35 @@ Node Package Manager (NPM) allows you to install/publish node packages with ease
 
 To install NodeJS
 
-$ sudo apt-get install curl
-$ sudo apt-get install python-software-properties
-$ curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-$ sudo apt-get install -y nodejs
+sudo apt-get install curl
+sudo apt-get install python-software-properties
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
-$ node -v # v7.9.0
-$ npm -v # 4.2.0
+node -v # v7.9.0
+npm -v # 4.2.0
+
+=======================================================================================================================
+
+Connect NodeJS to MongoDB
+
+# The MongoDB must be running
+mongod
+
+# Install the MongoDB driver for NodeJS
+npm install mongoose --save
+
+=======================================================================================================================
+
+Nodemon
+
+Everytime you change a file you have to stop and start the web server.
+Let's fix that using "nodemon" to refresh automatically.
+
+# install nodemon globally
+sudo npm install nodemon -g
+
+# Run web server with nodemon
+nodemon
 
 =======================================================================================================================
