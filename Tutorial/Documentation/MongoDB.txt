@@ -8,8 +8,8 @@ it stores data in JSON-like format and allows users to perform SQL-like queries 
 
 To install MongoDB
 
-$ sudo apt-get -y install mongodb
-$ mongod --version
+sudo apt-get -y install mongodb
+mongod --version
 
 # db version v2.6.10
 # 2017-04-15T22:11:32.871-0300 git version: nogitversion
@@ -21,43 +21,38 @@ Mongoose
 
 It is an NPM package that allows you to interact with MongoDB.
 
-To install Mongoose
+# To install Mongoose
+npm install mongoose --save # mongoose@4.9.4
 
-$ npm install mongoose --save # mongoose@4.9.4
-
-To run mongo daemon
-
-$ mongod
+# To run mongo daemon
+mongod
 
 =======================================================================================================================
 
 Errors that you may have
 
 Fix [ERROR: dbpath (/data/db) does not exist]
-
-$ cd ~
-$ sudo mkdir -p /data/db/
-$ sudo chown `id -u` /data/db
+cd ~
+sudo mkdir -p /data/db/
+sudo chown `id -u` /data/db
 
 Fix [ERROR: Insufficient free space for journal files]
-
-$ mongod --smallfiles
+mongod --smallfiles
 
 Fix [ERROR: addr already in use]
-
-$ sudo killall mongod
+sudo killall mongod
 
 =======================================================================================================================
 
 Mongoose Connect DataBase/Schema
 
-// Load mongoose package
+# Load mongoose package
 var mongoose = require('mongoose');
 
-// Connect to MongoDB and create/use database
+# Connect to MongoDB and create/use database
 mongoose.connect('mongodb://localhost/DataBaseName');
 
-// Create a schema
+# Create a schema
 var TestSchema = new mongoose.Schema({
   name: String,
   completed: Boolean,
@@ -65,7 +60,7 @@ var TestSchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
-// Create a model (collection) based on the schema
+# Create a model (collection) based on the schema
 var Test = mongoose.model('Test', TestSchema);
 
 =======================================================================================================================
@@ -74,10 +69,10 @@ Mongoose Create
 
 You can build the object and save it with the "save" or in one step using "create".
 
-// Create a test in memory
+# Create a test in memory
 var test = new Test({name: 'Master NodeJS', completed: false, note: 'Getting there...'});
 
-// Save it to database
+# Save it to database
 test.save(function(err){
   if(err)
     console.log(err);
@@ -85,7 +80,7 @@ test.save(function(err){
     console.log(test);
 });
 
-// You can also build the object and save it in one step using create
+# You can also build the object and save it in one step using create
 Test.create({name: 'Create something with Mongoose', completed: true, note: 'this is one'}, function(err, test){
   if(err) console.log(err);
   else console.log(test);
@@ -101,28 +96,28 @@ There are multiple options for reading/querying data:
 - Model.findById(id, [fields], [options], [callback])
 - Model.findOne(conditions, [fields], [options], [callback])
 
-// callback function to avoid duplicating it all over
+# Callback function to avoid duplicating it all over
 var callback = function (err, data) {
   if (err) { return console.error(err); }
   else { console.log(data); }
 }
 
-// Find all data in the Test collection
+# Find all data in the Test collection
 Test.find(callback);
 
-// Get ONLY completed tasks
+# Get ONLY completed tasks
 Test.find({completed: true }, callback);
 
-// Get all tasks ending with `JS`
+# Get all tasks ending with `JS`
 Test.find({name: /JS$/ }, callback);
 
 var oneYearAgo = new Date();
 oneYearAgo.setYear(oneYearAgo.getFullYear() - 1);
 
-// Get all tasks staring with `Master`, completed
+# Get all tasks staring with `Master`, completed
 Test.find({name: /^Master/, completed: true }, callback);
 
-// Get all tasks staring with `Master`, not completed and created from year ago to now...
+# Get all tasks staring with `Master`, not completed and created from year ago to now...
 Test.find({name: /^Master/, completed: false }).where('updated_at').gt(oneYearAgo).exec(callback);
 
 =======================================================================================================================
@@ -135,10 +130,10 @@ Each model has an update method which accepts multiple updates:
 - Model.findByIdAndUpdate(id, [update], [options], [callback])
 - Model.findOneAndUpdate([conditions], [update], [options], [callback])
 
-// update `multi`ple tasks from complete false to true
+# Update `multi`ple tasks from complete false to true
 Test.update({ name: /master/i }, { completed: true }, { multi: true }, callback);
 
-//Model.findOneAndUpdate([conditions], [update], [options], [callback])
+# Model.findOneAndUpdate([conditions], [update], [options], [callback])
 Test.findOneAndUpdate({name: /JS$/ }, {completed: false}, callback);
 
 =======================================================================================================================
@@ -150,5 +145,37 @@ UPDATE and REMOVE mongoose API are identical, the only difference it is that no 
 - Model.remove(conditions, [callback])
 - Model.findByIdAndRemove(id, [options], [callback])
 - Model.findOneAndRemove(conditions, [options], [callback])
+
+=======================================================================================================================
+
+Mongoose Model and Schema
+
+In the models/Test.js:
+
+var mongoose = require('mongoose');
+
+var TestSchema = new mongoose.Schema({
+  name: String,
+  completed: Boolean,
+  note: String,
+  updated_at: { type: Date, default: Date.now },
+});
+
+module.exports = mongoose.model('Test', TestSchema);
+
+Isn't MongoDB suppose to be schemaless? Well, it is schemalless and very flexible indeed.
+However, very often we want bring sanity to our API/WebApp through validations and enforcing a schema to keep a
+consistent structure.
+
+You can use the fallowing types:
+
+- String
+- Boolean
+- Date
+- Array
+- Number
+- ObjectId
+- Mixed
+- Buffer
 
 =======================================================================================================================
