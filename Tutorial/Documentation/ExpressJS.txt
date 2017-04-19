@@ -9,8 +9,8 @@ Through middlewares layers, it handles: cookies, sessions caching, CSRF, compres
 
 To install ExpressJS you can add the "express" as a dependency, inside your project folder.
 
-$ npm init
-$ npm install express --save
+npm init
+npm install express --save
 
 =======================================================================================================================
 
@@ -45,14 +45,11 @@ Use your browser to go to http://0.0.0.0:4000
 
 =======================================================================================================================
 
-Connect ExpressJS to MongoDB
+ExpressJS Routes
 
-# The MongoDB must be running
+routes/tests.js
 
-$ mongod
-
-# Install the MongoDB driver for NodeJS
-
-$ npm install mongoose --save
+var tests = require('./routes/tests');
+app.use('/tests', tests);
 
 =======================================================================================================================
