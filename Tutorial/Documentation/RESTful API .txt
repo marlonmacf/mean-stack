@@ -18,3 +18,28 @@ CRUD functionality:
 - DELETE (DELETE)
 
 =======================================================================================================================
+
+Websites and Mobile Apps consumers
+
+Probably these are the main consumers of APIs.
+You can interact with RESTful APIs using jQuery's "$ajax" and its wrappers, BackboneJS's Collections/models,
+AngularJS's "$http" or "$resource", among many other libraries/frameworks and mobile clients.
+
+=======================================================================================================================
+
+Requests with Curl
+
+# Create a test using the API
+curl -XPOST http://localhost:4000/tests -d 'name=Master%20Routes&completed=false&note=soon...'
+
+# Get test by ID (use the _id from the previous request, in my case "57a655997d2241695585ecf8")
+curl -XGET http://localhost:4000/tests/57a655997d2241695585ecf8
+
+# Get all elements (notice it is an array)
+curl -XGET http://localhost:4000/tests
+
+# Use the ID from the test, in my case 57a655997d2241695585ecf8
+curl -XPUT http://localhost:4000/todos/57a655997d2241695585ecf8 -d "note=hola"
+
+
+=======================================================================================================================
