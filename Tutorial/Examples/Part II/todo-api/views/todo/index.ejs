@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todos</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+
+<% for(var i = 0; i < response.length; i++) { %>
+
+<p><b>ID</b><br><%= response[i]._id %></p>
+<p><b>NAME</b><br><%= response[i].name %></p>
+<p><b>COMPLETED</b><br><%= response[i].completed %></p>
+<p><b>VALUE</b><br><%= response[i].__v %></p>
+<p><b>UPDATED AT</b><br><%= response[i].updated_at %></p>
+
+<% } %>
+
+</body>
+</html>

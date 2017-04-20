@@ -1,14 +1,13 @@
 
-MongoDB
+MONGODB
 
 MongoDB is a document-oriented NoSQL database (Big Data ready).
-it stores data in JSON-like format and allows users to perform SQL-like queries against it.
+It stores data in JSON-like format and allows users to perform SQL-like queries against it.
 
-=======================================================================================================================
-
-To install MongoDB
-
+# To install MongoDB
 sudo apt-get -y install mongodb
+
+# To know the version
 mongod --version
 
 # db version v2.6.10
@@ -17,9 +16,9 @@ mongod --version
 
 =======================================================================================================================
 
-Mongoose
+MONGOOSE
 
-It is an NPM package that allows you to interact with MongoDB.
+It is an NPM package that allows you to interact with MongoDB. (https://github.com/Automattic/mongoose)
 
 # To install Mongoose
 npm install mongoose --save # mongoose@4.9.4
@@ -27,9 +26,7 @@ npm install mongoose --save # mongoose@4.9.4
 # To run mongo daemon
 mongod
 
-=======================================================================================================================
-
-Errors that you may have
+ERRORS that you may have
 
 Fix [ERROR: dbpath (/data/db) does not exist]
 cd ~
@@ -42,9 +39,7 @@ mongod --smallfiles
 Fix [ERROR: addr already in use]
 sudo killall mongod
 
-=======================================================================================================================
-
-Mongoose Connect DataBase/Schema
+CONNECT DATABASE/SCHEMA: You need to load mongoose package, then create a model (collection) based on the schema.
 
 # Load mongoose package
 var mongoose = require('mongoose');
@@ -60,14 +55,10 @@ var TestSchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
-# Create a model (collection) based on the schema
+# Create a model
 var Test = mongoose.model('Test', TestSchema);
 
-=======================================================================================================================
-
-Mongoose Create
-
-You can build the object and save it with the "save" or in one step using "create".
+CREATE: You can build the object and save it with the "save" or in one step using "create".
 
 # Create a test in memory
 var test = new Test({name: 'Master NodeJS', completed: false, note: 'Getting there...'});
@@ -86,11 +77,7 @@ Test.create({name: 'Create something with Mongoose', completed: true, note: 'thi
   else console.log(test);
 });
 
-=======================================================================================================================
-
-Mongoose Read and Query
-
-There are multiple options for reading/querying data:
+READ AND QUERY: There are multiple options for reading/querying data:
 
 - Model.find(conditions, [fields], [options], [callback])
 - Model.findById(id, [fields], [options], [callback])
@@ -120,11 +107,7 @@ Test.find({name: /^Master/, completed: true }, callback);
 # Get all tasks staring with `Master`, not completed and created from year ago to now...
 Test.find({name: /^Master/, completed: false }).where('updated_at').gt(oneYearAgo).exec(callback);
 
-=======================================================================================================================
-
-Mongoose Update
-
-Each model has an update method which accepts multiple updates:
+UPDATE: Each model has an update method which accepts multiple updates:
 
 - Model.update(conditions, update, [options], [callback])
 - Model.findByIdAndUpdate(id, [update], [options], [callback])
@@ -136,46 +119,10 @@ Test.update({ name: /master/i }, { completed: true }, { multi: true }, callback)
 # Model.findOneAndUpdate([conditions], [update], [options], [callback])
 Test.findOneAndUpdate({name: /JS$/ }, {completed: false}, callback);
 
-=======================================================================================================================
-
-Mongoose Delete
-
-UPDATE and REMOVE mongoose API are identical, the only difference it is that no elements are returned:
+DELETE: update and remove mongoose API are identical, the only difference it is that no elements are returned:
 
 - Model.remove(conditions, [callback])
 - Model.findByIdAndRemove(id, [options], [callback])
 - Model.findOneAndRemove(conditions, [options], [callback])
-
-=======================================================================================================================
-
-Mongoose Model and Schema
-
-In the models/Test.js:
-
-var mongoose = require('mongoose');
-
-var TestSchema = new mongoose.Schema({
-  name: String,
-  completed: Boolean,
-  note: String,
-  updated_at: { type: Date, default: Date.now },
-});
-
-module.exports = mongoose.model('Test', TestSchema);
-
-Isn't MongoDB suppose to be schemaless? Well, it is schemalless and very flexible indeed.
-However, very often we want bring sanity to our API/WebApp through validations and enforcing a schema to keep a
-consistent structure.
-
-You can use the fallowing types:
-
-- String
-- Boolean
-- Date
-- Array
-- Number
-- ObjectId
-- Mixed
-- Buffer
 
 =======================================================================================================================

@@ -1,33 +1,65 @@
 
-ExpressJS
+EXPRESSJS
 
 ExpressJS is a complete web framework solution that runs on NodeJS.
 It has HTML template solutions (jade, ejs, handlebars, hogan.js) and CSS precompilers (less, stylus, compass).
 Through middlewares layers, it handles: cookies, sessions caching, CSRF, compression and many more.
-
-=======================================================================================================================
-
 To install ExpressJS you can add the "express" as a dependency, inside your project folder.
 
-npm init
-npm install express --save
+npm init & npm install express --save
 
-=======================================================================================================================
-
-Middlewares are pluggable processors that runs on each request made to the server.
+MIDDLEWARES are pluggable processors that runs on each request made to the server.
 You can have number of middlewares that will process the request one by one in a serial fashion.
 
 app.use (will apply for all request)
 app.get, app.delete, app.post app.update... (app.verb)
 
+ROUTES refers to the definition of application end points (URIs) and how they respond to client requests.
+
+routes/tests.js
+var express = require('express')
+
+var app = express()
+app.get('/', function (req, res) {
+  res.send('hello world')
+});
+
+MODELS and SCHEMAS: using Mongoose which is designed to work in an asynchronous environment.
+
+models/Test.js
+var mongoose = require('mongoose');
+
+var TestSchema = new mongoose.Schema({
+  name: String,
+  completed: Boolean,
+  note: String,
+  updated_at: { type: Date, default: Date.now },
+});
+
+ module.exports = mongoose.model('Test', TestSchema);
+
+Isn't MongoDB suppose to be schemaless? Well, it is schemalless and very flexible indeed.
+However, very often we want bring sanity to our API/WebApp through validations and enforcing a schema to keep a
+consistent structure. You can use the fallowing types:
+
+- String
+- Boolean
+- Date
+- Array
+- Number
+- ObjectId
+- Mixed
+- Buffer
+
 =======================================================================================================================
 
-Bootstrapping ExpressJS
+EXPRESS-GENERATOR
 
-Express has a separate package called "express-generator", which can help us to get started with o express app.
+To bootstrapping ExpressJS, you can use a separate package called "express-generator".
+Which can help us to get started with our express app.
 
 # install it globally using -g
-sudo npm install express-generator -g
+npm init & npm install express-generator -g
 
 # create test-app API with EJS template views (instead the default Jade)
 express test-api -e
@@ -36,20 +68,8 @@ express test-api -e
 cd test-api && npm install
 
 # run the app on Linux/Mac
-PORT=4000 npm start
+PORT=4000 npm start # or just npm start to use the default 3000 port.
 
-# run the app on Windows
-SET PORT=4000 & npm start
-
-Use your browser to go to http://0.0.0.0:4000
-
-=======================================================================================================================
-
-ExpressJS Routes
-
-routes/tests.js
-
-var tests = require('./routes/tests');
-app.use('/tests', tests);
+Use your browser to go to "http://0.0.0.0:4000".
 
 =======================================================================================================================

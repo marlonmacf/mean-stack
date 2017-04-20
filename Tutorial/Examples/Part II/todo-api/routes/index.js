@@ -1,7 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-// GET home page.
+/**
+ * @Verb GET
+ * @Path index
+ * @Action /home
+ */
 router.get('/', function (request, response) {
     response.render('index', {title: 'Express'});
 });
