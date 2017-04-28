@@ -36,20 +36,11 @@ var TestSchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
- module.exports = mongoose.model('Test', TestSchema);
+module.exports = mongoose.model('Test', TestSchema);
 
 Isn't MongoDB suppose to be schemaless? Well, it is schemalless and very flexible indeed.
 However, very often we want bring sanity to our API/WebApp through validations and enforcing a schema to keep a
-consistent structure. You can use the fallowing types:
-
-- String
-- Boolean
-- Date
-- Array
-- Number
-- ObjectId
-- Mixed
-- Buffer
+consistent structure. You can use the fallowing types: String, Boolean, Date, Array, Number, ObjectId, Mixed, Buffer.
 
 =======================================================================================================================
 
@@ -59,10 +50,10 @@ To bootstrapping ExpressJS, you can use a separate package called "express-gener
 Which can help us to get started with our express app.
 
 # install it globally using -g
-npm init & npm install express-generator -g
+sudo npm install express-generator -g
 
 # create test-app API with EJS template views (instead the default Jade)
-express test-api -e
+express test-app -e
 
 # install dependencies
 cd test-api && npm install

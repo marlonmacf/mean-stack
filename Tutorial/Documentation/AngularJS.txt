@@ -32,6 +32,11 @@ They are created through factories.
 FILTERS allow you to format and transform data. They change the output of expressions inside the curly braces.
 You can chain many filters and also define your own filters.
 
+HTTP REQUESTS are make by "$http" which is a core service that allow to make "XMLHttpRequest" or "json" request.
+You can pass an object with http verb and url or call $http.verb ($http.get, $http.post).
+
+PROMISE: "$http" returns a promise which has a "success" or "error" function.
+
 =======================================================================================================================
 
 NG-DIRECTIVES

@@ -26,7 +26,7 @@ npm install mongoose --save # mongoose@4.9.4
 # To run mongo daemon
 mongod
 
-ERRORS that you may have
+ERRORS that you may have:
 
 Fix [ERROR: dbpath (/data/db) does not exist]
 cd ~
@@ -38,6 +38,8 @@ mongod --smallfiles
 
 Fix [ERROR: addr already in use]
 sudo killall mongod
+
+=======================================================================================================================
 
 CONNECT DATABASE/SCHEMA: You need to load mongoose package, then create a model (collection) based on the schema.
 
@@ -58,6 +60,8 @@ var TestSchema = new mongoose.Schema({
 # Create a model
 var Test = mongoose.model('Test', TestSchema);
 
+=======================================================================================================================
+
 CREATE: You can build the object and save it with the "save" or in one step using "create".
 
 # Create a test in memory
@@ -76,6 +80,8 @@ Test.create({name: 'Create something with Mongoose', completed: true, note: 'thi
   if(err) console.log(err);
   else console.log(test);
 });
+
+=======================================================================================================================
 
 READ AND QUERY: There are multiple options for reading/querying data:
 
@@ -107,6 +113,8 @@ Test.find({name: /^Master/, completed: true }, callback);
 # Get all tasks staring with `Master`, not completed and created from year ago to now...
 Test.find({name: /^Master/, completed: false }).where('updated_at').gt(oneYearAgo).exec(callback);
 
+=======================================================================================================================
+
 UPDATE: Each model has an update method which accepts multiple updates:
 
 - Model.update(conditions, update, [options], [callback])
@@ -118,6 +126,8 @@ Test.update({ name: /master/i }, { completed: true }, { multi: true }, callback)
 
 # Model.findOneAndUpdate([conditions], [update], [options], [callback])
 Test.findOneAndUpdate({name: /JS$/ }, {completed: false}, callback);
+
+=======================================================================================================================
 
 DELETE: update and remove mongoose API are identical, the only difference it is that no elements are returned:
 

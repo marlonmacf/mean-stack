@@ -16,26 +16,25 @@ npm -v # 4.2.0
 
 =======================================================================================================================
 
+EXPRESSJS
+
+ExpressJS is a complete web framework solution that runs on NodeJS.
+Install the package "express" as a dependency, inside your project folder.
+
+npm install express --save
+
+=======================================================================================================================
+
 NODEMON
 
 Everytime you change a file you have to stop and start the web server.
 Let's fix that using "nodemon" to refresh automatically.
 
 # install nodemon globally
-npm init
-npm install nodemon -g
+sudo npm install nodemon -g
 
 # Run web server with nodemon
 PORT=4000 nodemon # or just nodemon to use the default 3000 port.
-
-=======================================================================================================================
-
-EXPRESSJS
-
-ExpressJS is a complete web framework solution that runs on NodeJS.
-Install the package "express" as a dependency, inside your project folder.
-
-npm init & npm install express --save
 
 =======================================================================================================================
 
@@ -47,6 +46,19 @@ Connect NodeJS to MongoDB with Mongoose. Mongoose is an NPM package that allows 
 mongod
 
 # Install the MongoDB driver for NodeJS, inside your project folder.
-npm init & npm install mongoose --save
+npm install mongoose --save
+
+# app.js
+var mongoose = require('mongoose');
+
+// use native Node promises to connect to MongoDB (Mongoose)
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/test-api')
+    .then(function () {
+        console.log('[mongoose] connection succesful')
+    }, null)
+    .catch(function (err) {
+        console.error('[mongoose] ' + err)
+    });
 
 =======================================================================================================================
