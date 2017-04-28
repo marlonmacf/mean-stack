@@ -1,3 +1,4 @@
 .idea
-Tutorial/Examples/Part II/todo-app/node_modules/
-Tutorial/Examples/Part II/todo-api/node_modules/
+/Tutorial/Examples/Part II/todo-app/node_modules/
+/Tutorial/Examples/Part II/todo-api/node_modules/
+/Tutorial/Examples/Part III/todo-app/node_modules/
