@@ -17,6 +17,19 @@ router.get('/', function (request, response, next) {
 });
 
 /**
+ * @Verb GET
+ * @Path show
+ * @Action /todos/:id
+ * @Return View
+ */
+router.get('/:id', function (request, response, next) {
+    Todo.findById(request.params.id, function (error, todo) {
+        if (error) return next(error);
+        response.json(todo);
+    });
+});
+
+/**
  * @Verb POST
  * @Path store
  * @Action /todos
