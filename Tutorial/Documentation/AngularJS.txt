@@ -37,6 +37,8 @@ You can pass an object with http verb and url or call $http.verb ($http.get, $ht
 
 PROMISE: "$http" returns a promise which has a "success" or "error" function.
 
+RESOURCES It’s an Angular service that has a higher level of abstraction of $http to deal with RESTful requests.
+
 =======================================================================================================================
 
 NG-DIRECTIVES
