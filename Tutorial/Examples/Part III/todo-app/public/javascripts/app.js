@@ -7,6 +7,7 @@ angular.module('app', ['ngRoute', 'ngResource'])
     }])
 
     .controller('TodoController', ['$scope', 'Todos', function ($scope, Todos) {
+        $scope.editing = [];
         $scope.todos = Todos.query();
 
         $scope.save = function () {
@@ -16,11 +17,49 @@ angular.module('app', ['ngRoute', 'ngResource'])
                 $scope.todos.push(todo);
                 $scope.newTodo = '';
             });
-        }
+        };
+
+        $scope.update = function (index) {
+            var todo = $scope.todos[index];
+            Todos.update({id: todo._id}, todo);
+            $scope.editing[index] = false;
+        };
+
+        $scope.edit = function (index) {
+            $scope.editing[index] = angular.copy($scope.todos[index]);
+        };
+
+        $scope.cancel = function (index) {
+            $scope.todos[index] = angular.copy($scope.editing[index]);
+            $scope.editing[index] = false;
+        };
+
+        $scope.remove = function (index) {
+            var todo = $scope.todos[index];
+            Todos.remove({id: todo._id}, function () {
+                $scope.todos.splice(index, 1);
+            });
+        };
     }])
 
-    .controller('TodoDetailCtrl', ['$scope', '$routeParams', 'Todos', function ($scope, $routeParams, Todos) {
-        $scope.todo = Todos.get({id: $routeParams.id });
+    .controller('TodoDetailCtrl', ['$scope', '$routeParams', 'Todos', '$location', function ($scope, $routeParams, Todos, $location) {
+        $scope.todo = Todos.get({id: $routeParams.id});
+
+        $scope.update = function () {
+            Todos.update({id: $scope.todo._id}, $scope.todo, function () {
+                $location.url('/');
+            });
+        };
+
+        $scope.cancel = function () {
+            $location.url('/');
+        };
+
+        $scope.remove = function () {
+            Todos.remove({id: $scope.todo._id}, function () {
+                $location.url('/');
+            });
+        };
     }])
 
     .config(['$routeProvider', function ($routeProvider) {

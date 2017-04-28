@@ -39,6 +39,8 @@ PROMISE: "$http" returns a promise which has a "success" or "error" function.
 
 RESOURCES It’s an Angular service that has a higher level of abstraction of $http to deal with RESTful requests.
 
+LOCATION: "$location" is a getter/setter method that allows us to change url, thus routing/view.
+
 =======================================================================================================================
 
 NG-DIRECTIVES
@@ -49,10 +51,12 @@ NG-DIRECTIVES
 - ng-view: is a directive used by $routeProvider to render templates on it.
 - ng-template: <script type="text/ng-template" id="/template.html"></script>
 
-- ng-bind: is a directive that binds application data to the HTML view.
 - expressions or {{ }}: are a way of binding models to elements in HTML.
+- ng-bind: is a directive that binds application data to the HTML view.
 
 - ng-repeat: It is going to iterate for each element and sub-element where this directive is declared.
+- ng-show: this directive shows the element if the expression evaluates to true. Otherwise, the content is hidden.
+- ng-change: directive for input elements that evaluates the expression after any change.
 
 =======================================================================================================================
 

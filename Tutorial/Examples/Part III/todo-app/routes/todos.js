@@ -49,16 +49,14 @@ router.post('/', function (request, response, next) {
  * @Return Object
  */
 router.put('/:id', function (request, response, next) {
-    Todo.findByIdAndUpdate(request.params.id, request.body, function (error, post) {
-        if (error) return next(error);
-        response.json(post);
-    });
     Todo.findById(request.params.id, function (error, todo) {
         if (error) return next(error);
+        todo.name = request.body.name;
+        todo.completed = request.body.completed;
         todo.note = request.body.note;
         todo.save(function (error, post) {
-            if (error) return next(error);
-            response.json(post);
+        if (error) return next(error);
+        response.json(post);
         });
     });
 });

@@ -29,10 +29,30 @@
     </ul>
 </script>
 
+<script type="text/ng-template" id="/todos.html">
+    <label>Search: <input type="text" ng-model="search.name"></label>
+    <ul>
+        <li ng-repeat="todo in todos | filter: search">
+            <label><input type="checkbox" ng-model="todo.completed" ng-change="update($index)"></label>
+            <a ng-show="!editing[$index]" href="#/{{todo._id}}">{{todo.name}}</a>
+            <button ng-show="!editing[$index]" ng-click="edit($index)">Edit</button>
+            <label><input ng-show="editing[$index]" type="text" ng-model="todo.name"></label>
+            <button ng-show="editing[$index]" ng-click="update($index)">Update</button>
+            <button ng-show="editing[$index]" ng-click="cancel($index)">Cancel</button>
+            <button ng-show="!editing[$index]" ng-click="remove($index)">Remove</button>
+        </li>
+    </ul>
+    <label>New task <input type="text" ng-model="newTodo"></label>
+    <button ng-click="save()">Create</button>
+</script>
+
 <script type="text/ng-template" id="/todoDetails.html">
     <h1>{{ todo.name }}</h1>
-    <label>completed: <input type="checkbox" ng-model="todo.completed"></label>
-    <label>note: <textarea>{{ todo.note }}</textarea></label>
+    <label>completed: <input type="checkbox" ng-model="todo.completed"><br></label>
+    <label>note: <textarea ng-model="todo.note"></textarea><br><br></label>
+    <button ng-click="update()">Update</button>
+    <button ng-click="cancel()">Cancel</button>
+    <button ng-click="remove()">Remove</button>
 </script>
 
 </body>
