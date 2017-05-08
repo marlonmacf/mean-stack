@@ -1,4 +1,4 @@
 .idea
-/Implementations/Part II - ExpressJS/todo-app/node_modules/
-/Implementations/Part II - ExpressJS/todo-api/node_modules/
-/Implementations/Part III - MEAN Stack/todo-app/node_modules/
+/Implementations/default-app/express-js/todo-app/node_modules/
+/Implementations/default-app/express-js/todo-api/node_modules/
+/Implementations/default-app/mean-stack/todo-app/node_modules/
